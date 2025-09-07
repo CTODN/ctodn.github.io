@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-key="title-page">Phân Tích Kế Hoạch Liên Minh IT Outsourcing Đà Nẵng</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Calm Harmony -->
+    <!-- Application Structure Plan: The SPA is designed as an interactive dashboard to present the analysis of the alliance's plan. It uses thematic sections (Strategic Overview, Structure, Activities, Recommendations Dashboard, Support) to transform the static report into an actionable tool. This structure was chosen to guide leaders from high-level strategy down to specific, prioritized recommendations, and support contacts, making the analysis more digestible and impactful than a linear document. This update adds a language switcher to toggle between Vietnamese and English, enhancing accessibility for a global audience. -->
+    <!-- Visualization & Content Choices: Strategic Goals -> Inform -> Stat Cards (HTML/CSS) -> Justification: High impact display. Membership/Rules -> Organize/Compare -> Tabbed Interface (HTML/JS) -> Justification: Clear comparison of original plan vs. recommendations. Main Activities -> Organize -> HTML/CSS Diagram & Donut Chart (Chart.js) -> Justification: Shows relationships and priorities visually. All Recommendations -> Organize/Inform -> Card-based Dashboard -> Justification: Presents actionable insights clearly. The new Support section adds contact information. All choices adhere to NO SVG/Mermaid. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f1f5f9;
+            color: #1e293b;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 450px;
+            }
+        }
+        .kpi-bar {
+            background: linear-gradient(90deg, #3b82f6 var(--progress), #e0e7ff var(--progress));
+        }
+        .card {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            will-change: transform, box-shadow;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold text-slate-800">
+                <span class="text-blue-600" data-key="analysis-prefix">Phân Tích</span> <span data-key="alliance-plan">Kế Hoạch Liên Minh</span>
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#overview" class="text-slate-600 hover:text-blue-600 transition-colors" data-key="nav-overview">Tổng Quan</a>
+                <a href="#structure" class="text-slate-600 hover:text-blue-600 transition-colors" data-key="nav-structure">Cấu Trúc</a>
+                <a href="#activities" class="text-slate-600 hover:text-blue-600 transition-colors" data-key="nav-activities">Hoạt Động</a>
+                <a href="#recommendations" class="text-slate-600 hover:text-blue-600 transition-colors" data-key="nav-recommendations">Đề Xuất</a>
+                <a href="#support" class="text-slate-600 hover:text-blue-600 transition-colors" data-key="nav-support">Hỗ Trợ</a>
+            </div>
+            <div class="flex items-center space-x-2">
+                <button id="lang-vi" class="lang-button text-xs font-bold text-slate-800 px-3 py-1 rounded-full bg-slate-200">VI</button>
+                <button id="lang-en" class="lang-button text-xs font-medium text-slate-500 px-3 py-1 rounded-full hover:bg-slate-200 transition-colors">EN</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+        <section id="hero" class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight" data-key="hero-title">Bảng Điều Khiển Tối Ưu Hóa</h1>
+            <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto" data-key="hero-subtitle">
+                Phân tích tương tác và các đề xuất chiến lược nhằm nâng cao hiệu quả hoạt động của Liên minh IT Outsourcing Đà Nẵng.
+            </p>
+        </section>
+
+        <section id="overview" class="mb-16">
+            <h2 class="text-3xl font-bold text-slate-800 mb-2" data-key="section1-title">1. Tổng Quan Chiến Lược</h2>
+            <p class="text-slate-600 mb-8" data-key="section1-intro">Đánh giá và đề xuất tinh chỉnh Tầm nhìn và Sứ mệnh để tăng cường sự rõ ràng và khả năng đo lường, đặt nền móng vững chắc cho sự phát triển của Liên minh.</p>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md card">
+                    <h3 class="text-xl font-semibold text-slate-800 mb-4" data-key="s1-card1-title">Sứ Mệnh Tinh Chỉnh</h3>
+                    <p class="text-slate-500 mb-4 italic" data-key="s1-card1-prefix">Đề xuất:</p>
+                    <blockquote class="border-l-4 border-blue-500 pl-4">
+                        <p class="text-lg font-medium text-slate-700" data-key="s1-card1-quote">"Tạo ra giá trị gia tăng bền vững cho thành viên, đưa Đà Nẵng thành trung tâm IT Outsourcing uy tín trên bản đồ quốc tế."</p>
+                    </blockquote>
+                    <p class="mt-4 text-sm text-slate-500" data-key="s1-card1-note">→ Sứ mệnh được đề xuất cô đọng hơn, nhấn mạnh vào "giá trị bền vững" và "vị thế quốc tế".</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md card">
+                    <h3 class="text-xl font-semibold text-slate-800 mb-4" data-key="s1-card2-title">Đề Xuất Bổ Sung KPIs</h3>
+                    <p class="text-slate-500 mb-4" data-key="s1-card2-intro">Để đo lường hiệu quả các mục tiêu, cần có các chỉ số cụ thể:</p>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="font-medium text-slate-700" data-key="s1-kpi1-label">Giá trị dự án chia sẻ</label>
+                            <div class="w-full h-3 rounded-full mt-1 kpi-bar" style="--progress: 20%"></div>
+                            <p class="text-xs text-right text-slate-500" data-key="s1-kpi1-target">Mục tiêu Q1: +20%</p>
+                        </div>
+                        <div>
+                            <label class="font-medium text-slate-700" data-key="s1-kpi2-label">Số lượng khách hàng mới từ Liên minh</label>
+                            <div class="w-full h-3 rounded-full mt-1 kpi-bar" style="--progress: 50%"></div>
+                             <p class="text-xs text-right text-slate-500" data-key="s1-kpi2-target">Mục tiêu 6 tháng: +10 khách hàng</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="structure" class="mb-16">
+            <h2 class="text-3xl font-bold text-slate-800 mb-2" data-key="section2-title">2. Cấu Trúc & Vận Hành</h2>
+            <p class="text-slate-600 mb-8" data-key="section2-intro">Các đề xuất nhằm củng cố nền tảng vận hành, từ tiêu chí thành viên đến cơ chế giải quyết xung đột, đảm bảo sự phát triển minh bạch và bền vững.</p>
+            <div class="bg-white p-6 rounded-lg shadow-md card">
+                 <div class="mb-4 flex border-b border-slate-200">
+                    <button data-tab="membership" class="tab-button flex-1 py-3 px-4 text-center font-semibold text-blue-600 border-b-2 border-blue-600" data-key="tab-membership">Thành Viên</button>
+                    <button data-tab="rules" class="tab-button flex-1 py-3 px-4 text-center font-semibold text-slate-500" data-key="tab-rules">Quy Chế</button>
+                     <button data-tab="board" class="tab-button flex-1 py-3 px-4 text-center font-semibold text-slate-500" data-key="tab-board">Ban Điều Hành</button>
+                </div>
+                <div id="membership" class="tab-content">
+                    <h4 class="text-lg font-semibold text-slate-700 mb-2" data-key="s2-tab1-title">Đề Xuất: Bổ sung tiêu chí năng lực chuyên môn</h4>
+                    <p class="text-slate-600" data-key="s2-tab1-text">Yêu cầu thành viên cung cấp danh mục dự án và công nghệ chuyên sâu (ví dụ: "công ty A chuyên về AI/ML, công ty B mạnh về Mobile App").</p>
+                    <p class="mt-2 text-sm font-medium text-blue-600" data-key="s2-tab1-note">→ Lợi ích: Tăng hiệu quả kết nối dự án và giúp khách hàng dễ dàng lựa chọn đối tác phù hợp.</p>
+                </div>
+                 <div id="rules" class="tab-content hidden">
+                    <h4 class="text-lg font-semibold text-slate-700 mb-2" data-key="s2-tab2-title">Đề Xuất: Xây dựng cơ chế giải quyết xung đột</h4>
+                    <p class="text-slate-600" data-key="s2-tab2-text">Thành lập "Ủy ban Hòa giải" hoặc quy trình giải quyết tranh chấp nội bộ một cách công bằng và kín đáo trước khi áp dụng hình phạt.</p>
+                     <p class="mt-2 text-sm font-medium text-blue-600" data-key="s2-tab2-note">→ Lợi ích: Duy trì sự đoàn kết và môi trường hợp tác chuyên nghiệp.</p>
+                </div>
+                 <div id="board" class="tab-content hidden">
+                    <h4 class="text-lg font-semibold text-slate-700 mb-2" data-key="s2-tab3-title">Đề Xuất: Minh bạch hóa tài chính</h4>
+                    <p class="text-slate-600" data-key="s2-tab3-text">Xây dựng báo cáo tài chính định kỳ, làm rõ các nguồn thu (phí thành viên) và các khoản chi cho hoạt động chung.</p>
+                     <p class="mt-2 text-sm font-medium text-blue-600" data-key="s2-tab3-note">→ Lợi ích: Tăng cường sự tin tưởng và cam kết từ các thành viên.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="activities" class="mb-16">
+            <h2 class="text-3xl font-bold text-slate-800 mb-2" data-key="section3-title">3. Hoạt Động & Tác Động</h2>
+            <p class="text-slate-600 mb-8" data-key="section3-intro">Tối ưu hóa các hoạt động chính để tạo ra giá trị thiết thực nhất cho thành viên và cộng đồng. Các đề xuất tập trung vào việc ứng dụng công nghệ và chia sẻ kiến thức chuyên sâu.</p>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="bg-white p-6 rounded-lg shadow-md h-full card">
+                    <h3 class="text-xl font-semibold text-slate-800 mb-4" data-key="s3-card1-title">Đề Xuất Nâng Cao Hoạt Động</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-semibold text-slate-700" data-key="s3-rec1-title">Kết nối dự án (Matchmaking)</h4>
+                            <p class="text-slate-600 text-sm" data-key="s3-rec1-text">Xây dựng một nền tảng (Google Sheet hoặc app đơn giản) để thành viên cập nhật năng lực, nguồn lực trống và nhu cầu dự án.</p>
+                        </div>
+                         <div>
+                            <h4 class="font-semibold text-slate-700" data-key="s3-rec2-title">Hoạt động đào tạo</h4>
+                            <p class="text-slate-600 text-sm" data-key="s3-rec2-text">Tổ chức các buổi "Masterclass" hoặc "Case Study Sharing" định kỳ để chia sẻ kinh nghiệm thực chiến và thể hiện năng lực.</p>
+                        </div>
+                         <div>
+                            <h4 class="font-semibold text-slate-700" data-key="s3-rec3-title">Công cụ quản lý</h4>
+                            <p class="text-slate-600 text-sm" data-key="s3-rec3-text">Sử dụng các công cụ như Trello, Asana để BĐH theo dõi tiến độ công việc và phân công nhiệm vụ hiệu quả.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md card">
+                     <h3 class="text-xl text-center font-semibold text-slate-800 mb-4" data-key="s3-chart-title">Phân Bổ Nguồn Lực Hoạt Động (Đề xuất)</h3>
+                    <div class="chart-container">
+                        <canvas id="activitiesChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="recommendations" class="mb-16">
+            <h2 class="text-3xl font-bold text-slate-800 mb-2" data-key="section4-title">4. Bảng Đề Xuất Tổng Hợp</h2>
+            <p class="text-slate-600 mb-8" data-key="section4-intro">Danh sách các đề xuất cốt lõi, được hệ thống hóa để Ban điều hành có thể dễ dàng theo dõi và triển khai, nhằm tối ưu hóa kế hoạch hoạt động của Liên minh.</p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                 <div class="border border-slate-200 bg-white p-6 rounded-lg card">
+                    <span class="text-xs font-semibold uppercase text-blue-500" data-key="rec-cat1">Quản trị</span>
+                    <h3 class="text-lg font-semibold text-slate-800 mt-2" data-key="rec1-title">Bổ Sung KPIs</h3>
+                    <p class="text-sm text-slate-500 mt-1" data-key="rec1-text">Định lượng hóa mục tiêu để đo lường hiệu quả hoạt động.</p>
+                </div>
+                 <div class="border border-slate-200 bg-white p-6 rounded-lg card">
+                    <span class="text-xs font-semibold uppercase text-blue-500" data-key="rec-cat2">Thành viên</span>
+                    <h3 class="text-lg font-semibold text-slate-800 mt-2" data-key="rec2-title">Chi Tiết Hóa Năng Lực</h3>
+                    <p class="text-sm text-slate-500 mt-1" data-key="rec2-text">Yêu cầu hồ sơ năng lực chi tiết để tăng hiệu quả matchmaking.</p>
+                </div>
+                 <div class="border border-slate-200 bg-white p-6 rounded-lg card">
+                    <span class="text-xs font-semibold uppercase text-blue-500" data-key="rec-cat3">Vận hành</span>
+                    <h3 class="text-lg font-semibold text-slate-800 mt-2" data-key="rec3-title">Cơ Chế Hòa Giải</h3>
+                    <p class="text-sm text-slate-500 mt-1" data-key="rec3-text">Xây dựng quy trình giải quyết xung đột nội bộ chuyên nghiệp.</p>
+                </div>
+                 <div class="border border-slate-200 bg-white p-6 rounded-lg card">
+                    <span class="text-xs font-semibold uppercase text-green-500" data-key="rec-cat4">Hoạt động</span>
+                    <h3 class="text-lg font-semibold text-slate-800 mt-2" data-key="rec4-title">Nền Tảng Matchmaking</h3>
+                    <p class="text-sm text-slate-500 mt-1" data-key="rec4-text">Ứng dụng công nghệ để kết nối dự án và nguồn lực nhanh chóng.</p>
+                </div>
+                 <div class="border border-slate-200 bg-white p-6 rounded-lg card">
+                    <span class="text-xs font-semibold uppercase text-green-500" data-key="rec-cat5">Hoạt động</span>
+                    <h3 class="text-lg font-semibold text-slate-800 mt-2" data-key="rec5-title">Chuỗi "Masterclass"</h3>
+                    <p class="text-sm text-slate-500 mt-1" data-key="rec5-text">Tổ chức chia sẻ kiến thức chuyên sâu từ các thành viên.</p>
+                </div>
+                 <div class="border border-slate-200 bg-white p-6 rounded-lg card">
+                    <span class="text-xs font-semibold uppercase text-blue-500" data-key="rec-cat6">Quản trị</span>
+                    <h3 class="text-lg font-semibold text-slate-800 mt-2" data-key="rec6-title">Báo Cáo Tài Chính</h3>
+                    <p class="text-sm text-slate-500 mt-1" data-key="rec6-text">Đảm bảo minh bạch tài chính để xây dựng lòng tin.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="support" class="bg-white p-8 rounded-lg shadow-md mb-16">
+             <h2 class="text-3xl font-bold text-center text-slate-800 mb-2" data-key="support-title">Thông Tin Hỗ Trợ</h2>
+             <p class="text-slate-600 text-center mb-8" data-key="support-intro">Liên hệ với ban điều hành và bộ phận hỗ trợ khi cần.</p>
+             <div class="grid md:grid-cols-3 gap-8 text-center">
+                 <div>
+                    <div class="text-4xl mb-2">🧑‍💼</div>
+                    <h3 class="font-bold text-slate-700" data-key="support-admin-title">Ban Điều Hành</h3>
+                    <p class="text-sm text-slate-600" data-key="support-admin-names">Ms. Tuệ Linh, Mr. Trường</p>
+                 </div>
+                 <div class="col-span-1 md:col-span-2">
+                    <div class="text-4xl mb-2">🙋‍♂️</div>
+                    <h3 class="font-bold text-slate-700" data-key="support-contact-title">Hỗ Trợ</h3>
+                    <p class="text-sm text-slate-600" data-key="support-contact-name">Johnny</p>
+                 </div>
+             </div>
+        </section>
+    </main>
+
+    <footer class="bg-slate-800 text-slate-300 mt-16">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p data-key="footer-text">&copy; 2025 | Phân tích được thực hiện cho Cộng Đồng CTO Đà Nẵng.</p>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            'en': {
+                'title-page': 'Da Nang IT Outsourcing Alliance Plan Analysis',
+                'analysis-prefix': 'Analysis',
+                'alliance-plan': 'of the Alliance Plan',
+                'nav-overview': 'Overview',
+                'nav-structure': 'Structure',
+                'nav-activities': 'Activities',
+                'nav-recommendations': 'Recommendations',
+                'nav-support': 'Support',
+                'hero-title': 'Optimization Dashboard',
+                'hero-subtitle': 'Interactive analysis and strategic recommendations to enhance the operational effectiveness of the Da Nang IT Outsourcing Alliance.',
+                'section1-title': '1. Strategic Overview',
+                'section1-intro': 'An assessment and proposed refinement of the Vision and Mission to enhance clarity and measurability, laying a solid foundation for the Alliance\'s growth.',
+                's1-card1-title': 'Refined Mission',
+                's1-card1-prefix': 'Recommendation:',
+                's1-card1-quote': '"To create sustainable added value for members, positioning Da Nang as a reputable IT Outsourcing hub on the international map."',
+                's1-card1-note': '→ The proposed mission is more concise, emphasizing "sustainable value" and "international standing".',
+                's1-card2-title': 'Proposed KPI Additions',
+                's1-card2-intro': 'To measure the effectiveness of the goals, specific indicators are needed:',
+                's1-kpi1-label': 'Shared project value',
+                's1-kpi1-target': 'Q1 Target: +20%',
+                's1-kpi2-label': 'New clients from the Alliance',
+                's1-kpi2-target': '6-month Target: +10 clients',
+                'section2-title': '2. Structure & Operations',
+                'section2-intro': 'Proposals to strengthen the operational foundation, from membership criteria to conflict resolution mechanisms, ensuring transparent and sustainable growth.',
+                'tab-membership': 'Membership',
+                'tab-rules': 'Regulations',
+                'tab-board': 'Board of Directors',
+                's2-tab1-title': 'Recommendation: Supplement professional competency criteria',
+                's2-tab1-text': 'Require members to provide a portfolio of projects and specialized technologies (e.g., "Company A specializes in AI/ML, Company B is strong in Mobile App").',
+                's2-tab1-note': '→ Benefit: Increases project connection efficiency and helps clients easily choose the right partner.',
+                's2-tab2-title': 'Recommendation: Establish a conflict resolution mechanism',
+                's2-tab2-text': 'Form a "Mediation Committee" or a process for fair and confidential internal dispute resolution before applying penalties.',
+                's2-tab2-note': '→ Benefit: Maintains unity and a professional collaborative environment.',
+                's2-tab3-title': 'Recommendation: Financial transparency',
+                's2-tab3-text': 'Establish regular financial reports, clarifying revenue sources (member fees) and expenses for shared activities.',
+                's2-tab3-note': '→ Benefit: Strengthens trust and commitment from members.',
+                'section3-title': '3. Activities & Impact',
+                'section3-intro': 'Optimize key activities to create the most tangible value for members and the community. The proposals focus on applying technology and sharing specialized knowledge.',
+                's3-card1-title': 'Proposed Activity Enhancements',
+                's3-rec1-title': 'Project Connection (Matchmaking)',
+                's3-rec1-text': 'Build a platform (Google Sheet or a simple app) for members to update their capabilities, available resources, and project needs.',
+                's3-rec2-title': 'Training Activities',
+                's3-rec2-text': 'Organize regular "Masterclass" or "Case Study Sharing" sessions to share practical experience and demonstrate capabilities.',
+                's3-rec3-title': 'Management Tools',
+                's3-rec3-text': 'Use tools like Trello, Asana for the Board of Directors to track work progress and assign tasks efficiently.',
+                's3-chart-title': 'Proposed Resource Allocation for Activities',
+                'section4-title': '4. Consolidated Recommendations Board',
+                'section4-intro': 'A list of core recommendations, systematized for the Board of Directors to easily track and implement, to optimize the Alliance\'s activity plan.',
+                'rec-cat1': 'Governance',
+                'rec1-title': 'Add KPIs',
+                'rec1-text': 'Quantify goals to measure operational effectiveness.',
+                'rec-cat2': 'Member',
+                'rec2-title': 'Detail Capabilities',
+                'rec2-text': 'Require detailed capability profiles to increase matchmaking efficiency.',
+                'rec-cat3': 'Operations',
+                'rec3-title': 'Mediation Mechanism',
+                'rec3-text': 'Build a professional internal conflict resolution process.',
+                'rec-cat4': 'Activities',
+                'rec4-title': 'Matchmaking Platform',
+                'rec4-text': 'Apply technology to quickly connect projects and resources.',
+                'rec-cat5': 'Activities',
+                'rec5-title': '"Masterclass" Series',
+                'rec5-text': 'Organize a series of in-depth knowledge sharing sessions from members.',
+                'rec-cat6': 'Governance',
+                'rec6-title': 'Financial Reports',
+                'rec6-text': 'Ensure financial transparency to build trust.',
+                'support-title': 'Support Information',
+                'support-intro': 'Contact the Board of Directors and support department when needed.',
+                'support-admin-title': 'Board of Directors',
+                'support-admin-names': 'Ms. Tue Linh, Mr. Truong',
+                'support-contact-title': 'Support',
+                'support-contact-name': 'Johnny',
+                'footer-text': '© 2025 | Analysis performed for the Da Nang CTO Community.',
+            },
+            'vi': {
+                'title-page': 'Phân Tích Kế Hoạch Liên Minh IT Outsourcing Đà Nẵng',
+                'analysis-prefix': 'Phân Tích',
+                'alliance-plan': 'Kế Hoạch Liên Minh',
+                'nav-overview': 'Tổng Quan',
+                'nav-structure': 'Cấu Trúc',
+                'nav-activities': 'Hoạt Động',
+                'nav-recommendations': 'Đề Xuất',
+                'nav-support': 'Hỗ Trợ',
+                'hero-title': 'Bảng Điều Khiển Tối Ưu Hóa',
+                'hero-subtitle': 'Phân tích tương tác và các đề xuất chiến lược nhằm nâng cao hiệu quả hoạt động của Liên minh IT Outsourcing Đà Nẵng.',
+                'section1-title': '1. Tổng Quan Chiến Lược',
+                'section1-intro': 'Đánh giá và đề xuất tinh chỉnh Tầm nhìn và Sứ mệnh để tăng cường sự rõ ràng và khả năng đo lường, đặt nền móng vững chắc cho sự phát triển của Liên minh.',
+                's1-card1-title': 'Sứ Mệnh Tinh Chỉnh',
+                's1-card1-prefix': 'Đề xuất:',
+                's1-card1-quote': '"Tạo ra giá trị gia tăng bền vững cho thành viên, đưa Đà Nẵng thành trung tâm IT Outsourcing uy tín trên bản đồ quốc tế."',
+                's1-card1-note': '→ Sứ mệnh được đề xuất cô đọng hơn, nhấn mạnh vào "giá trị bền vững" và "vị thế quốc tế".',
+                's1-card2-title': 'Đề Xuất Bổ Sung KPIs',
+                's1-card2-intro': 'Để đo lường hiệu quả các mục tiêu, cần có các chỉ số cụ thể:',
+                's1-kpi1-label': 'Giá trị dự án chia sẻ',
+                's1-kpi1-target': 'Mục tiêu Q1: +20%',
+                's1-kpi2-label': 'Số lượng khách hàng mới từ Liên minh',
+                's1-kpi2-target': 'Mục tiêu 6 tháng: +10 khách hàng',
+                'section2-title': '2. Cấu Trúc & Vận Hành',
+                'section2-intro': 'Các đề xuất nhằm củng cố nền tảng vận hành, từ tiêu chí thành viên đến cơ chế giải quyết xung đột, đảm bảo sự phát triển minh bạch và bền vững.',
+                'tab-membership': 'Thành Viên',
+                'tab-rules': 'Quy Chế',
+                'tab-board': 'Ban Điều Hành',
+                's2-tab1-title': 'Đề Xuất: Bổ sung tiêu chí năng lực chuyên môn',
+                's2-tab1-text': 'Yêu cầu thành viên cung cấp danh mục dự án và công nghệ chuyên sâu (ví dụ: "công ty A chuyên về AI/ML, công ty B mạnh về Mobile App").',
+                's2-tab1-note': '→ Lợi ích: Tăng hiệu quả kết nối dự án và giúp khách hàng dễ dàng lựa chọn đối tác phù hợp.',
+                's2-tab2-title': 'Đề Xuất: Xây dựng cơ chế giải quyết xung đột',
+                's2-tab2-text': 'Thành lập "Ủy ban Hòa giải" hoặc quy trình giải quyết tranh chấp nội bộ một cách công bằng và kín đáo trước khi áp dụng hình phạt.',
+                's2-tab2-note': '→ Lợi ích: Duy trì sự đoàn kết và môi trường hợp tác chuyên nghiệp.',
+                's2-tab3-title': 'Đề Xuất: Minh bạch hóa tài chính',
+                's2-tab3-text': 'Xây dựng báo cáo tài chính định kỳ, làm rõ các nguồn thu (phí thành viên) và các khoản chi cho hoạt động chung.',
+                's2-tab3-note': '→ Lợi ích: Tăng cường sự tin tưởng và cam kết từ các thành viên.',
+                'section3-title': '3. Hoạt Động & Tác Động',
+                'section3-intro': 'Tối ưu hóa các hoạt động chính để tạo ra giá trị thiết thực nhất cho thành viên và cộng đồng. Các đề xuất tập trung vào việc ứng dụng công nghệ và chia sẻ kiến thức chuyên sâu.',
+                's3-card1-title': 'Đề Xuất Nâng Cao Hoạt Động',
+                's3-rec1-title': 'Kết nối dự án (Matchmaking)',
+                's3-rec1-text': 'Xây dựng một nền tảng (Google Sheet hoặc app đơn giản) để thành viên cập nhật năng lực, nguồn lực trống và nhu cầu dự án.',
+                's3-rec2-title': 'Hoạt động đào tạo',
+                's3-rec2-text': 'Tổ chức các buổi "Masterclass" hoặc "Case Study Sharing" định kỳ để chia sẻ kinh nghiệm thực chiến và thể hiện năng lực.',
+                's3-rec3-title': 'Công cụ quản lý',
+                's3-rec3-text': 'Sử dụng các công cụ như Trello, Asana để BĐH theo dõi tiến độ công việc và phân công nhiệm vụ hiệu quả.',
+                's3-chart-title': 'Phân Bổ Nguồn Lực Hoạt Động (Đề xuất)',
+                'section4-title': '4. Bảng Đề Xuất Tổng Hợp',
+                'section4-intro': 'Danh sách các đề xuất cốt lõi, được hệ thống hóa để Ban điều hành có thể dễ dàng theo dõi và triển khai, nhằm tối ưu hóa kế hoạch hoạt động của Liên minh.',
+                'rec-cat1': 'Quản trị',
+                'rec1-title': 'Bổ Sung KPIs',
+                'rec1-text': 'Định lượng hóa mục tiêu để đo lường hiệu quả hoạt động.',
+                'rec-cat2': 'Thành viên',
+                'rec2-title': 'Chi Tiết Hóa Năng Lực',
+                'rec2-text': 'Yêu cầu hồ sơ năng lực chi tiết để tăng hiệu quả matchmaking.',
+                'rec-cat3': 'Vận hành',
+                'rec3-title': 'Cơ Chế Hòa Giải',
+                'rec3-text': 'Xây dựng quy trình giải quyết xung đột nội bộ chuyên nghiệp.',
+                'rec-cat4': 'Hoạt động',
+                'rec4-title': 'Nền Tảng Matchmaking',
+                'rec4-text': 'Ứng dụng công nghệ để kết nối dự án và nguồn lực nhanh chóng.',
+                'rec-cat5': 'Hoạt động',
+                'rec5-title': 'Chuỗi "Masterclass"',
+                'rec5-text': 'Tổ chức chia sẻ kiến thức chuyên sâu từ các thành viên.',
+                'rec-cat6': 'Quản trị',
+                'rec6-title': 'Báo Cáo Tài Chính',
+                'rec6-text': 'Đảm bảo minh bạch tài chính để xây dựng lòng tin.',
+                'support-title': 'Thông Tin Hỗ Trợ',
+                'support-intro': 'Liên hệ với ban điều hành và bộ phận hỗ trợ khi cần.',
+                'support-admin-title': 'Ban Điều Hành',
+                'support-admin-names': 'Ms. Tuệ Linh, Mr. Trường',
+                'support-contact-title': 'Hỗ Trợ',
+                'support-contact-name': 'Johnny',
+                'footer-text': '© 2025 | Phân tích được thực hiện cho Cộng Đồng CTO Đà Nẵng.',
+            }
+        };
+
+        let currentLang = 'vi';
+
+        function updateContent(lang) {
+            document.querySelectorAll('[data-key]').forEach(el => {
+                const key = el.getAttribute('data-key');
+                if (translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+
+            // Update title
+            document.title = translations[lang]['title-page'];
+
+            // Update active button
+            document.querySelectorAll('.lang-button').forEach(button => {
+                const buttonLang = button.id.replace('lang-', '');
+                if (buttonLang === lang) {
+                    button.classList.add('bg-slate-200', 'font-bold');
+                    button.classList.remove('bg-transparent', 'font-medium', 'text-slate-500');
+                } else {
+                    button.classList.remove('bg-slate-200', 'font-bold');
+                    button.classList.add('bg-transparent', 'font-medium', 'text-slate-500');
+                }
+            });
+
+            // Update chart labels
+            if (window.activitiesChart) {
+                window.activitiesChart.data.labels = [
+                    translations[lang]['s3-rec1-title'],
+                    translations[lang]['s3-rec2-title'],
+                    translations[lang]['s3-rec3-title'],
+                    'Hợp tác nhân sự' // Hardcoded since no data-key
+                ];
+                window.activitiesChart.update();
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const tab = button.dataset.tab;
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('text-blue-600', 'border-blue-600');
+                        btn.classList.add('text-slate-500');
+                    });
+                    button.classList.add('text-blue-600', 'border-blue-600');
+                    button.classList.remove('text-slate-500');
+                    tabContents.forEach(content => {
+                        content.id === tab ? content.classList.remove('hidden') : content.classList.add('hidden');
+                    });
+                });
+            });
+
+            const ctx = document.getElementById('activitiesChart').getContext('2d');
+            window.activitiesChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Kết nối dự án', 'Đào tạo & Chia sẻ', 'Xây dựng thương hiệu', 'Hợp tác nhân sự'],
+                    datasets: [{
+                        label: 'Phân bổ nguồn lực',
+                        data: [40, 25, 20, 15],
+                        backgroundColor: ['#3b82f6', '#0ea5e9', '#6366f1', '#64748b'],
+                        borderColor: '#fff',
+                        borderWidth: 2,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: (context) => `${context.label}: ${context.parsed}%`,
+                                title: function(tooltipItems) {
+                                    const item = tooltipItems[0];
+                                    let label = item.chart.data.labels[item.dataIndex];
+                                    return Array.isArray(label) ? label.join(' ') : label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            document.getElementById('lang-vi').addEventListener('click', () => updateContent('vi'));
+            document.getElementById('lang-en').addEventListener('click', () => updateContent('en'));
+        });
+    </script>
+</body>
+</html>
